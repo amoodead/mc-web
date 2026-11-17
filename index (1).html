@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17251c">
+<title>BlockPlay — Browser Game Portal</title>
+<style>
+:root{color-scheme:dark;--bg:#101812;--green:#79d36b;--muted:#b5c2b5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,Segoe UI,sans-serif;color:#f4f7f1;background:radial-gradient(ellipse at 50% 0%,#294a30,#17291d 42%,var(--bg) 78%);display:flex;flex-direction:column}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,6vw,84px);border-bottom:1px solid #ffffff16;background:#10181288}
+.brand{font-weight:900;letter-spacing:.08em;font-size:20px}.brand span{color:var(--green)}nav{color:var(--muted);font-size:14px}
+main{width:min(100% - 36px,980px);margin:auto;text-align:center;padding:76px 0 90px}
+.tag{display:inline-flex;border:1px solid #8edb7c55;background:#79d36b12;color:#b7f0a9;border-radius:999px;padding:8px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(42px,8vw,82px);line-height:.98;margin:26px 0 18px;letter-spacing:-.055em}h1 span{color:var(--green)}
+.intro{max-width:620px;margin:0 auto;color:var(--muted);font-size:17px;line-height:1.7}
+.scene{height:210px;max-width:680px;margin:48px auto 32px;position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:22px;background:linear-gradient(#84b9a0 0%,#c1d99b 55%,#628c48 56%,#315b35 100%);box-shadow:0 25px 70px #0006}
+.sun{position:absolute;width:58px;height:58px;border-radius:50%;background:#ffe69a;right:15%;top:28px;box-shadow:0 0 45px #ffe69a88}
+.block{position:absolute;bottom:0;width:76px;height:76px;background:linear-gradient(#72b84e 0 24%,#8b603e 24%);border:2px solid #263f2b33;box-shadow:inset -9px -8px #0002}
+.b1{left:13%}.b2{left:25%;height:112px}.b3{right:25%}.b4{right:13%;height:112px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:15px 28px;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none;transition:.18s}
+.primary{background:var(--green);color:#132016;box-shadow:0 8px 24px #79d36b33}.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.secondary{background:#ffffff10;color:#f4f7f1;border:1px solid #ffffff24}
+.note{margin:22px auto 0;color:#9eae9f;font-size:12px;line-height:1.6;max-width:560px}
+footer{text-align:center;padding:22px;color:#829184;font-size:12px;border-top:1px solid #ffffff12}
+dialog{max-width:420px;width:calc(100% - 32px);border:1px solid #ffffff2a;border-radius:18px;background:#19271e;color:#f4f7f1;padding:26px;box-shadow:0 24px 90px #000a}
+dialog::backdrop{background:#000a}dialog h2{margin-top:0}dialog p{color:var(--muted);line-height:1.6}
+@media(max-width:560px){header{height:64px}nav{display:none}main{padding:58px 0}.scene{height:160px}.block{width:58px;height:58px}.b2,.b4{height:88px}}
+</style>
+</head>
+<body>
+<header><div class="brand">BLOCK<span>PLAY</span></div><nav>Browser Game Portal</nav></header>
+<main>
+<div class="tag">✦ Play in your browser</div>
+<h1>BUILD YOUR<br><span>OWN WORLD.</span></h1>
+<p class="intro">A block-building game portal designed for the browser. Jump in, explore, and create.</p>
+<div class="scene" aria-hidden="true"><div class="sun"></div><div class="block b1"></div><div class="block b2"></div><div class="block b3"></div><div class="block b4"></div></div>
+<div class="actions"><button class="btn primary" id="play">PLAY</button><a class="btn secondary" href="#about">ABOUT</a></div>
+<p class="note" id="about">This is an independent fan project and is not affiliated with or endorsed by Mojang or Microsoft. The playable client will be added only when its distribution and usage permissions are confirmed.</p>
+</main>
+<footer>BLOCKPLAY · Independent browser game project</footer>
+<dialog id="notice"><h2>Game client coming soon</h2><p>The website is online as a first preview. The browser game client and multiplayer service have not been connected yet.</p><button class="btn primary" id="close">GOT IT</button></dialog>
+<script>
+const modal=document.getElementById('notice');
+document.getElementById('play').addEventListener('click',()=>modal.showModal());
+document.getElementById('close').addEventListener('click',()=>modal.close());
+</script>
+</body>
+</html>
